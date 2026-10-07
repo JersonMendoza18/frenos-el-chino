@@ -499,111 +499,130 @@ body {
 /* =========================================================
    MOBILE
    ========================================================= */
+   @media (max-width: 600px) {
 
-@media (max-width: 600px) {
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .page-header p {
+        font-size: 0.9rem;
+    }
 
     .card {
-        padding:
-            15px;
+        padding: 1rem;
+        border-radius: 12px;
     }
 
+    .list-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .table-container {
+        overflow: visible;
+    }
 
     /*
-     * Transformamos la tabla en cards.
+     * En móvil dejamos de mostrar la tabla
+     * como una tabla tradicional.
      */
-
-    .inventory-table,
-    .inventory-table thead,
-    .inventory-table tbody,
-    .inventory-table tr,
-    .inventory-table td {
-
-        display:
-            block;
-
-        width:
-            100%;
+    .inventory-table {
+        display: block;
+        width: 100%;
     }
-
 
     .inventory-table thead {
-        display:
-            none;
+        display: none;
     }
 
+    .inventory-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
 
     .inventory-table tr {
-
-        background:
-            white;
-
-        border:
-            1px solid
-            var(--border);
-
-        border-radius:
-            12px;
-
-        margin-bottom:
-            12px;
-
-        padding:
-            8px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        padding: 1rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
-
 
     .inventory-table td {
-
-        border:
-            none;
-
-        padding:
-            8px;
-
-        display:
-            flex;
-
-        justify-content:
-            space-between;
-
-        gap:
-            15px;
-
-        white-space:
-            normal;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0;
+        border: none;
+        min-width: 0;
     }
 
-
-    .inventory-table td::before {
-
-        content:
-            attr(data-label);
-
-        font-weight:
-            700;
-
-        color:
-            var(--muted);
+    /*
+     * Etiquetas de cada campo.
+     */
+    .inventory-table td:nth-child(1)::before {
+        content: "Código";
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #6b7280;
     }
 
-
-    .inventory-table td:last-child {
-
-        justify-content:
-            flex-end;
+    .inventory-table td:nth-child(2)::before {
+        content: "Marca";
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #6b7280;
     }
 
-
-    .inventory-table td:last-child::before {
-
-        display:
-            none;
+    .inventory-table td:nth-child(3)::before {
+        content: "Precio";
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #6b7280;
     }
 
+    /*
+     * Acciones ocupan todo el ancho.
+     */
+    .inventory-table td:nth-child(4) {
+        grid-column: 1 / -1;
+        padding-top: 0.5rem;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .inventory-table td:nth-child(4)::before {
+        display: none;
+    }
 
     .row-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        width: 100%;
+    }
 
-        justify-content:
-            flex-end;
+    .small-btn {
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .price {
+        font-weight: 700;
+    }
+
+    .empty {
+        display: block !important;
+        text-align: center;
+        padding: 1.5rem !important;
     }
 }
